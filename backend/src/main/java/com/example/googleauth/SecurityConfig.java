@@ -13,6 +13,16 @@ public class SecurityConfig
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception 
     {
         http
+            .cors(cors -> cors.configurationSource(request -> {
+                var config = new org.springframework.web.cors.CorsConfiguration();
+
+                config.setAllowedOrigins(java.util.List.of("http://127.0.0.1:5500"));
+                config.setAllowedMethods(java.util.List.of("GET", "POST"));
+                config.setAllowedHeaders(java.util.List.of("*"));
+
+                return config;
+            }))
+
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/login").permitAll()
                 //all other requests blocked
