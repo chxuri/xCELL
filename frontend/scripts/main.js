@@ -1,9 +1,14 @@
 const button = document.getElementById("testButton");
 const response = document.getElementById("response");
 
-button.addEventListener("click", async function() 
+
+async function loadUser()
 {
-    const result = await fetch("http://localhost:8080/login");
-    const message = await result.text();
-    response.textContent = message;
-})
+    console.log("in loadUser");
+    const response = await fetch("http://localhost:8080/user", {credentials: "include"});
+    const user = await response.json();
+
+    document.getElementById("topRight").textContent = user.name;
+}
+
+loadUser();

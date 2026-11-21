@@ -16,22 +16,26 @@ public class SecurityConfig
             .cors(cors -> cors.configurationSource(request -> {
                 var config = new org.springframework.web.cors.CorsConfiguration();
 
-                config.setAllowedOrigins(java.util.List.of("http://127.0.0.1:5500"));
+                config.setAllowedOrigins(java.util.List.of("http://localhost:5500"));
                 config.setAllowedMethods(java.util.List.of("GET", "POST"));
                 config.setAllowedHeaders(java.util.List.of("*"));
+                //allows necessary cookie for spring
+                config.setAllowCredentials(true);
 
                 return config;
             }))
 
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/login").permitAll()
-                //all other requests blocked
-                .anyRequest().denyAll()
+                //only users with authentication can use
+                .anyRequest().authenticated()
             )
             //to disable Spring's automatic login page
             .formLogin(form -> form.disable())
             //not using basic authentication b/c going to use Google login
-            .httpBasic(basic -> basic.disable());
+            .httpBasic(basic -> basic.disable())
+            //enables oauth2 login & sets url to redirect to after success (true->always redirect there)
+            .oauth2Login(oauth -> oauth.defaultSuccessUrl("http://localhost:5500/frontend/pages/index.html", true));
 
         return http.build();
     }
