@@ -36,12 +36,17 @@ header {
     color: var(--cyan);
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
 }
 
 .leftlinks {
     display: flex;
     gap: 10px;
+}
+
+.rightlinks {
+    display: flex;
+    align-items: center;
 }
 
 h1 {
@@ -58,6 +63,11 @@ h1 {
     background-image: url("/frontend/resources/images/blurred-cell.png");
 }
 
+#profilePic {
+    width: 0;
+    margin-left: 0;
+    border-radius: 30px;
+}
 .hero-content{
     width: 50dvh;
     display: block;

@@ -1,5 +1,6 @@
 const button = document.getElementById("testButton");
 const response = document.getElementById("response");
+const profile = document.querySelector("#profilePic");
 
 
 async function loadUser()
@@ -7,8 +8,24 @@ async function loadUser()
     console.log("in loadUser");
     const response = await fetch("http://localhost:8080/user", {credentials: "include"});
     const user = await response.json();
-
-    document.getElementById("topRight").textContent = user.name;
+    const arr = user.name.split(" ");
+    document.getElementById("topRight").textContent = "Hello, " + arr[0] + "!";
+    document.getElementById("topRight").removeAttribute("href");
+    document.getElementById("profilePic").style.width = "40px";
+    document.getElementById("profilePic").style.marginLeft = "15px";
+    document.getElementById("profilePic").src = user.picture;
+    document.getElementById("indexLogIn").style.display = "none";
+    document.getElementById("indexTutorial").classList.add("center-button");
 }
+
+//style this later??
+profile.addEventListener("click", function(e)
+{
+    if(confirm("Log out?"))
+    {
+        console.log(true);
+    }
+})
+
 
 loadUser();
