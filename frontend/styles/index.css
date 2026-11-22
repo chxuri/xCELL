@@ -5,6 +5,7 @@
 :root {
     --cyan: #12e1b9;
     --background: #070d29;
+    --lightCyan: #85c5b9;
 }
 
 @font-face {
@@ -61,6 +62,34 @@ h1 {
     height: 92dvh;
     padding-left: 50px; 
     background-image: url("/frontend/resources/images/blurred-cell.png");
+}
+
+.solid-hero {
+    background-color: #040818;
+    background-image: none;
+    justify-content: space-between;
+}
+
+.model-left {
+    display: flex;
+}
+
+#notesBox {
+    background-color: var(--lightCyan);
+    width: 40vw;
+    max-width: 400px;
+    height: 70vh;
+    margin-right: 40px;
+    justify-content: center;
+    text-align: center;
+}
+
+#notePad {
+    background-color: rgba(255, 255, 255, 0.603);
+    width: 30vw;
+    max-width: 340px;
+    height: 60vh;
+    margin: 30px;
 }
 
 #profilePic {
