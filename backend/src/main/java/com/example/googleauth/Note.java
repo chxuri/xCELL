@@ -1,3 +1,5 @@
+package com.example.googleauth;
+
 //to develop db table through class
 import jakarta.persistence.*;
 

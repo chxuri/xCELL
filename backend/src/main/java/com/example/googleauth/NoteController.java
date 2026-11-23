@@ -1,3 +1,5 @@
+package com.example.googleauth;
+
 //helps route HTTP requests to java methods
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;

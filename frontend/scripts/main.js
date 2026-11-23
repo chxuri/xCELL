@@ -18,6 +18,14 @@ async function loadUser()
     document.getElementById("indexTutorial").classList.add("center-button");
 }
 
+async function getCsrfToken()
+{
+    const response = await fetch("http://localhost:8080/csrf", {credentials: "include"});
+    const csrf = await response.json();
+    return csrf.token;
+}
+
+
 //style this later??
 profile.addEventListener("click", function(e)
 {
@@ -26,6 +34,5 @@ profile.addEventListener("click", function(e)
         console.log(true);
     }
 })
-
 
 loadUser();

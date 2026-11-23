@@ -1,3 +1,5 @@
+package com.example.googleauth;
+
 import java.util.List;
 
 //so spring can generate the repository

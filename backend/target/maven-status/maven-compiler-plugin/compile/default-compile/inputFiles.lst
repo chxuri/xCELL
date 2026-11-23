@@ -1,3 +1,8 @@
+/Users/rimma/projects/xCELL/backend/src/main/java/com/example/googleauth/CsrfController.java
 /Users/rimma/projects/xCELL/backend/src/main/java/com/example/googleauth/GoogleauthApplication.java
 /Users/rimma/projects/xCELL/backend/src/main/java/com/example/googleauth/LoginController.java
+/Users/rimma/projects/xCELL/backend/src/main/java/com/example/googleauth/Note.java
+/Users/rimma/projects/xCELL/backend/src/main/java/com/example/googleauth/NoteController.java
+/Users/rimma/projects/xCELL/backend/src/main/java/com/example/googleauth/NoteRepository.java
+/Users/rimma/projects/xCELL/backend/src/main/java/com/example/googleauth/NoteRequest.java
 /Users/rimma/projects/xCELL/backend/src/main/java/com/example/googleauth/SecurityConfig.java

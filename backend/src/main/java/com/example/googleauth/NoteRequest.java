@@ -1,3 +1,4 @@
+package com.example.googleauth;
 
 //class w only title and content to prevent users from accessing other people's notes
 public class NoteRequest

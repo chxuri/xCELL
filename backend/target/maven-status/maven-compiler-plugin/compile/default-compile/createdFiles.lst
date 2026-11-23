@@ -1,3 +1,8 @@
-com/example/googleauth/LoginController.class
+com/example/googleauth/CsrfController.class
+Note.class
 com/example/googleauth/GoogleauthApplication.class
+NoteController.class
+com/example/googleauth/LoginController.class
+NoteRequest.class
+NoteRepository.class
 com/example/googleauth/SecurityConfig.class
