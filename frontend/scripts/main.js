@@ -1,5 +1,3 @@
-const button = document.getElementById("testButton");
-const response = document.getElementById("response");
 const profile = document.querySelector("#profilePic");
 
 
@@ -14,15 +12,21 @@ async function loadUser()
     document.getElementById("profilePic").style.width = "40px";
     document.getElementById("profilePic").style.marginLeft = "15px";
     document.getElementById("profilePic").src = user.picture;
-    document.getElementById("indexLogIn").style.display = "none";
-    document.getElementById("indexTutorial").classList.add("center-button");
+    const indexLogIn = document.getElementById("indexLogIn")
+    if(indexLogIn)
+    {
+        indexLogIn.style.display = "none";
+        document.getElementById("indexTutorial").classList.add("center-button");
+    }
 }
 
 async function getCsrfToken()
 {
     const response = await fetch("http://localhost:8080/csrf", {credentials: "include"});
-    const csrf = await response.json();
-    return csrf.token;
+    
+    const csrfCookie = document.cookie.split("; ").find(cookie => cookie.startsWith("XSRF-TOKEN="));
+
+    return csrfCookie ? decodeURIComponent(csrfCookie.substring("XSRF-TOKEN=".length)): null;
 }
 
 
