@@ -6,6 +6,7 @@
     --cyan: #12e1b9;
     --background: #070d29;
     --lightCyan: #85c5b9;
+    --mint: #D4E7E3;
 }
 
 @font-face {
@@ -90,7 +91,7 @@ h1 {
 
 #notePad {
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.603);
+    background-color: var(--mint);
     width: 100%;
     flex: 1;
     margin: 0;
@@ -176,4 +177,59 @@ h1 {
 a {
     text-decoration: none;
     color: var(--cyan);
+}
+
+.note 
+{
+    padding: 10px;
+    background-color: var(--mint);
+    width: 200px;
+    height: 200px;
+}
+
+.note-date
+{
+    font-size: 13px;
+}
+.note-title
+{
+    padding-top: 8px;
+    padding-bottom: 2px;
+    font-size: 18px;
+    font-weight: 2000;
+}
+
+#notesContainer 
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 85dvh;
+    padding-left: 20px; 
+    gap: 20px;
+}
+
+.note-top
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.small-button
+{
+    padding-left: 5px;
+    padding-right: 0;
+    font-size: 13px;
+    color: black;
+}
+
+.note
+{
+    border: 8px solid var(--lightCyan);
+}
+
+#exampleNote {
+    display: none;
 }

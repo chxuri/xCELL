@@ -12,6 +12,8 @@ async function loadUser()
     document.getElementById("profilePic").style.width = "40px";
     document.getElementById("profilePic").style.marginLeft = "15px";
     document.getElementById("profilePic").src = user.picture;
+    console.log("Profile picture URL:", user.picture);
+    console.log("Image element:", document.getElementById("profilePic"));
     const indexLogIn = document.getElementById("indexLogIn")
     if(indexLogIn)
     {
