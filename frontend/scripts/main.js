@@ -1,24 +1,39 @@
 const profile = document.querySelector("#profilePic");
 
-
 async function loadUser()
 {
-    console.log("in loadUser");
     const response = await fetch("http://localhost:8080/user", {credentials: "include"});
-    const user = await response.json();
-    const arr = user.name.split(" ");
-    document.getElementById("topRight").textContent = "Hello, " + arr[0] + "!";
-    document.getElementById("topRight").removeAttribute("href");
-    document.getElementById("profilePic").style.width = "40px";
-    document.getElementById("profilePic").style.marginLeft = "15px";
-    document.getElementById("profilePic").src = user.picture;
-    console.log("Profile picture URL:", user.picture);
-    console.log("Image element:", document.getElementById("profilePic"));
-    const indexLogIn = document.getElementById("indexLogIn")
-    if(indexLogIn)
+    const notePad = document.getElementById("notePad");
+
+    if(response.ok)
     {
-        indexLogIn.style.display = "none";
-        document.getElementById("indexTutorial").classList.add("center-button");
+        const user = await response.json();
+        const arr = user.name.split(" ");
+        if(notePad)
+        {
+            document.getElementById("noteOverlay").style.display = "none";
+        }
+        document.getElementById("topRight").textContent = "Hello, " + arr[0] + "!";
+        document.getElementById("topRight").removeAttribute("href");
+        document.getElementById("profilePic").style.width = "40px";
+        document.getElementById("profilePic").style.marginLeft = "15px";
+        document.getElementById("profilePic").src = user.picture;
+        console.log("Profile picture URL:", user.picture);
+        console.log("Image element:", document.getElementById("profilePic"));
+        const indexLogIn = document.getElementById("indexLogIn")
+        if(indexLogIn)
+        {
+            indexLogIn.style.display = "none";
+            document.getElementById("indexTutorial").classList.add("center-button");
+        }
+    }
+    else
+    {
+
+        if(notePad)
+        {
+            document.getElementById("noteOverlay").style.display = "block";
+        }
     }
 }
 

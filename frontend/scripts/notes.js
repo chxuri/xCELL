@@ -1,5 +1,6 @@
 
-//issue to fix: pfp sometimes goes away
+//issue to fix: note length limit??
+//make sure to make scroll bar visible when exceeds certain length
 
 async function getNotes()
 {
