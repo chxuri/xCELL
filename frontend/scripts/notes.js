@@ -60,6 +60,106 @@ function createNote(noteJSON)
     deleteElement.textContent = "delete";
     editElement.textContent = "edit";
 
+    noteElement.dataset.id = noteJSON.id;
+
+
+    let isEditing = false;
+
+    let titleInputElement;
+    let contentInputElement;
+
+    
+    deleteElement.addEventListener("click", async () => {
+
+        if(isEditing)
+        {
+            titleInputElement.replaceWith(titleElement);
+            contentInputElement.replaceWith(contentElement);
+
+            deleteElement.textContent = "delete";
+            editElement.textContent = "edit";
+
+            isEditing = false;
+        }
+        else
+        {
+            const csrfToken = await getCsrfToken();
+            const response = await fetch(`http://localhost:8080/notes/${noteElement.dataset.id}`, {
+            method: "DELETE",
+            headers: {"X-XSRF-TOKEN": csrfToken},
+            credentials: "include"
+            });
+
+            if(response.ok)
+            {
+                noteElement.remove();
+                alert("Note deleted!");
+            }
+            else
+            {
+                alert("Note couldn't be deleted!");     
+            }
+        }
+    });
+
+    editElement.addEventListener("click", async () => {
+        if(!isEditing)
+        {
+            titleInputElement = document.createElement("input");
+            contentInputElement = document.createElement("textarea");
+
+            titleInputElement.value = titleElement.textContent;
+            contentInputElement.value = contentElement.textContent;
+
+            titleElement.replaceWith(titleInputElement);
+            contentElement.replaceWith(contentInputElement);
+
+            deleteElement.textContent = "cancel";
+            editElement.textContent = "save";
+            
+            isEditing = true;
+        }
+        else if(isEditing)
+        {   
+            
+            const noteData = {
+            title: titleInputElement.value,
+            content: contentInputElement.value
+            };
+            const csrfToken = await getCsrfToken();
+            const response = await fetch(`http://localhost:8080/notes/${noteElement.dataset.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type":"application/json",
+                    "X-XSRF-TOKEN": csrfToken
+                },
+                //turns object into json
+                body: JSON.stringify(noteData),
+                credentials: "include"
+            });
+
+            if(response.ok)
+            {
+                titleElement.textContent = titleInputElement.value;
+                contentElement.textContent = contentInputElement.value;
+                titleInputElement.replaceWith(titleElement);
+                contentInputElement.replaceWith(contentElement);
+
+                deleteElement.textContent = "delete";
+                editElement.textContent = "edit";
+
+                isEditing = false;
+                alert("Note saved!");
+            }
+            else
+            {
+                alert("Note couldn't be saved!");
+            }
+            
+        }
+
+    });
+
     return noteElement;
 }
 

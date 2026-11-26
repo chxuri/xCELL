@@ -26,6 +26,10 @@ public class Note
         userId = u;
     }
 
+    public Long getId()
+    {
+        return id;
+    }
     public String getTitle()
     {
         return title;
