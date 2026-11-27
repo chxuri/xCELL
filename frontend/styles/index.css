@@ -256,3 +256,26 @@ a:hover
 {
     cursor: pointer;
 }
+
+
+#plantCellContainer 
+{
+    /* width: 500px;
+    height: 500px; */
+    width: 500px;
+    height: 500px;
+    overflow: visible;
+    border: 2px solid red;
+}
+
+#plantCell
+{
+    /* display: block;
+    width: 100%;
+    height: 100%;
+    color: white; */
+    display: block;
+    width: 500px;
+    height: 500px;
+    border: 2px solid blue;
+}
