@@ -55,3 +55,32 @@ clearBtn.addEventListener("click", () => {
     title.value = "";
     content.value = "";
 });
+
+
+const nucleus = document.getElementById("nucleusA");
+const organelleTitle = document.getElementById("organelleTitleWords");
+const organelleContent = document.getElementById("organelleContentWords");
+
+nucleus.addEventListener("click", () => {
+    selectOrganelle(nucleus, 
+        "nucleus", 
+        "Contains the cell's DNA and helps control cell activities.")
+});
+
+function removeHighlight()
+{
+    const organelles = document.querySelectorAll(".organelle");
+
+    organelles.forEach(organelle => {
+        organelle.classList.remove("selectedOrganelle");
+    });
+}
+
+function selectOrganelle(organelle, title, content)
+{
+    removeHighlight();
+    organelle.classList.add("selectedOrganelle");
+    organelleTitle.textContent = title;
+    organelleContent.textContent = content;
+
+}

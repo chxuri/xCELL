@@ -28,22 +28,40 @@
 
         <div class="model-left">
             <div id="animalCellContainer">
-                <img id="animalCell" src="/frontend/resources/images/model/animal-cell/Animal_Cell_cropped.svg">
+                <img id="animalCell" src="/frontend/resources/images/cellSVG/animal-svg/Animal_Cell_cropped.svg">
                 <svg id="animalOrganelleOverlay" viewBox="0 0 485 490">
-                    <ellipse
-                    cx="273"
-                    cy="187"
-                    rx="28"
-                    ry="28"
-                    fill="transparent"
-                    stroke="red"
-                    stroke-width="2"
+                    <image
+                        id="nucleusA"
+                        class="organelle"
+                        href="/frontend/resources/images/cellSVG/animal-svg/nucleusA.svg"
+                        x="-700"
+                        y="-327"
+                        width="420%"
+                        height="250%"
+                    />
+                    <image
+                        id="cellMembraneA"
+                        class="organelle"
+                        href="/frontend/resources/images/cellSVG/animal-svg/cell-membraneA.svg"
+                        x="-700"
+                        y="-327"
+                        width="420%"
+                        height="250%"
                     />
                 </svg>
             </div>
         </div>
 
         <div class="model-right">
+
+            <div id="organelleInfo">
+                <div id="organelleTitle">
+                    <h2 id="organelleTitleWords">Organelle Information Area</h2>
+                </div>
+                <div id="organelleContent">
+                    <p id="organelleContentWords">click an organelle to learn more about it!</p>
+                </div>
+            </div>
 
             <div id="notesBox">
                 <div id="noteOverlay">
