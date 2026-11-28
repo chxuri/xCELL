@@ -19,6 +19,13 @@ public class SecurityConfig
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception 
     {
+        CookieCsrfTokenRepository csrfRepository = CookieCsrfTokenRepository.withHttpOnlyFalse();
+
+        csrfRepository.setCookieCustomizer(cookie -> cookie
+            .sameSite("None")
+            .secure(true)
+        );
+        
         http
             .cors(cors -> cors.configurationSource(request -> {
                 var config = new org.springframework.web.cors.CorsConfiguration();
