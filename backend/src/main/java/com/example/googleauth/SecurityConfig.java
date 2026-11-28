@@ -32,7 +32,10 @@ public class SecurityConfig
             }))
 
             //tells spring how to set up csrf protection for frontend
-            .csrf(csrf -> csrf.spa())
+            .csrf(csrf -> csrf
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+            )
+
 
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/login", "/csrf").permitAll()
