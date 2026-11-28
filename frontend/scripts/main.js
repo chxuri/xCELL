@@ -2,7 +2,7 @@ const profile = document.querySelector("#profilePic");
 
 async function loadUser()
 {
-    const response = await fetch("http://localhost:8080/user", {credentials: "include"});
+    const response = await fetch("https://xcell-backend.onrender.com/user", {credentials: "include"});
     const notePad = document.getElementById("notePad");
 
     if(response.ok)
@@ -39,7 +39,7 @@ async function loadUser()
 
 async function getCsrfToken()
 {
-    const response = await fetch("http://localhost:8080/csrf", {credentials: "include"});
+    const response = await fetch("https://xcell-backend.onrender.com/csrf", {credentials: "include"});
     
     const csrfCookie = document.cookie.split("; ").find(cookie => cookie.startsWith("XSRF-TOKEN="));
 
@@ -83,7 +83,7 @@ if(signOutButton)
     event.preventDefault();
 
     if (confirm("Are you sure you want to sign out?")) {
-        fetch("http://localhost:8080/logout", {
+        fetch("https://xcell-backend.onrender.com/logout", {
             method: "POST",
             credentials: "include"
         }).then(() => {

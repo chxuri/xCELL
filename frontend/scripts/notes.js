@@ -4,7 +4,7 @@
 
 async function getNotes()
 {
-    const response = await fetch("http://localhost:8080/notes", {
+    const response = await fetch("https://xcell-backend.onrender.com/notes", {
         method: "GET",
         credentials: "include"
     });
@@ -83,7 +83,7 @@ function createNote(noteJSON)
         else
         {
             const csrfToken = await getCsrfToken();
-            const response = await fetch(`http://localhost:8080/notes/${noteElement.dataset.id}`, {
+            const response = await fetch(`https://xcell-backend.onrender.com/notes/${noteElement.dataset.id}`, {
             method: "DELETE",
             headers: {"X-XSRF-TOKEN": csrfToken},
             credentials: "include"
@@ -126,7 +126,7 @@ function createNote(noteJSON)
             content: contentInputElement.value
             };
             const csrfToken = await getCsrfToken();
-            const response = await fetch(`http://localhost:8080/notes/${noteElement.dataset.id}`, {
+            const response = await fetch(`https://xcell-backend.onrender.com/notes/${noteElement.dataset.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type":"application/json",

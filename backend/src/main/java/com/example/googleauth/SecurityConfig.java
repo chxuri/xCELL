@@ -17,7 +17,7 @@ public class SecurityConfig
             .cors(cors -> cors.configurationSource(request -> {
                 var config = new org.springframework.web.cors.CorsConfiguration();
 
-                config.setAllowedOrigins(java.util.List.of("http://localhost:5500"));
+                config.setAllowedOrigins(java.util.List.of("https://xcell-shs.netlify.app"));
                 //options for preflight request
                 config.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                 config.setAllowedHeaders(java.util.List.of("*"));
@@ -40,7 +40,7 @@ public class SecurityConfig
             //not using basic authentication b/c going to use Google login
             .httpBasic(basic -> basic.disable())
             //enables oauth2 login & sets url to redirect to after success (true->always redirect there)
-            .oauth2Login(oauth -> oauth.defaultSuccessUrl("http://localhost:5500/frontend/pages/index.html", true));
+            .oauth2Login(oauth -> oauth.defaultSuccessUrl("https://xcell-shs.netlify.app/frontend/pages/index.html", true));
 
         return http.build();
     }

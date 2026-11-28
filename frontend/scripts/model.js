@@ -28,7 +28,7 @@ saveBtn.addEventListener("click", async () =>
     //await keyword to ensure actual response not a promise
     const csrfToken = await getCsrfToken();
 
-    const response = await fetch("http://localhost:8080/notes", {
+    const response = await fetch("https://xcell-backend.onrender.com/notes", {
             method: "POST",
             headers: {
                 "Content-Type":"application/json",
