@@ -41,9 +41,9 @@ async function getCsrfToken()
 {
     const response = await fetch("https://xcell-backend.onrender.com/csrf", {credentials: "include"});
     
-    const csrfCookie = document.cookie.split("; ").find(cookie => cookie.startsWith("XSRF-TOKEN="));
+    const csrfCookie = await response.json();
 
-    return csrfCookie ? decodeURIComponent(csrfCookie.substring("XSRF-TOKEN=".length)): null;
+    return csrfCookie.token;
 }
 
 
