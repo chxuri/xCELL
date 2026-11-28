@@ -56,8 +56,6 @@ function createNote(noteJSON)
 
     titleElement.textContent = noteJSON.title;
     contentElement.textContent = noteJSON.content;
-
-    dateElement.textContent = "date";
     deleteElement.textContent = "delete";
     editElement.textContent = "edit";
 

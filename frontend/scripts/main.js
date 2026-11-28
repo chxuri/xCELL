@@ -57,3 +57,39 @@ profile.addEventListener("click", function(e)
 })
 
 loadUser();
+
+
+const signOutButton = document.getElementById("profilePic");
+// const logInRIGHT = document.getElementById("topRight");
+// const indexLogIn = document.getElementById("indexLogIn");
+
+// if(logInRIGHT)
+// {
+//     logInRIGHT.addEventListener("click", () => {
+//         loadUser();
+//     });
+// }
+
+// if(indexLogIn)
+// {
+//     indexLogIn.addEventListener("click", () => {
+//         loadUser();
+//     });
+// }
+
+if(signOutButton)
+{
+    signOutButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (confirm("Are you sure you want to sign out?")) {
+        fetch("http://localhost:8080/logout", {
+            method: "POST",
+            credentials: "include"
+        }).then(() => {
+            window.location.href = "/frontend/pages/index.html";
+        });
+    }
+    });
+
+}
