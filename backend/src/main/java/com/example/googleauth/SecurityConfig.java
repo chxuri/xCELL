@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
+
 @Configuration
 public class SecurityConfig 
 {
@@ -32,15 +33,9 @@ public class SecurityConfig
                 return config;
             }))
 
-            //tells spring how to set up csrf protection for frontend
+            // Tells Spring how to set up CSRF protection for frontend
             .csrf(csrf -> csrf
-                .csrfTokenRepository(
-                    CookieCsrfTokenRepository.withHttpOnlyFalse()
-                    .setCookieCustomizer(cookie -> cookie
-                        .sameSite("None")
-                        .secure(true)
-                    )
-                )
+                .csrfTokenRepository(csrfRepository)
                 .csrfTokenRequestHandler(
                     new CsrfTokenRequestAttributeHandler()
                 )
