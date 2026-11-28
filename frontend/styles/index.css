@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: "Neue Machina";
-    src: url("/frontend//resources/fonts/PPNeueMachina-PlainRegular.otf") format("opentype");
+    src: url("../resources/fonts/PPNeueMachina-PlainRegular.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
 }
@@ -64,7 +64,7 @@ h1 {
     justify-content: flex-start;
     height: 92dvh;
     padding-left: 50px; 
-    background-image: url("/frontend/resources/images/blurred-cell.png");
+    background-image: url("../resources/images/blurred-cell.png");
 }
 
 .solid-hero {
