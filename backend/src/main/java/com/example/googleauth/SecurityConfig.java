@@ -2,7 +2,7 @@ package com.example.googleauth;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,15 +43,15 @@ public class SecurityConfig
             .exceptionHandling(ex -> ex
                 .defaultAuthenticationEntryPointFor(
                     new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED),
-                    new AntPathRequestMatcher("/user")
+                    PathPatternRequestMatcher.withDefaults().matcher("/user")
                 )
                 .defaultAuthenticationEntryPointFor(
                     new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED),
-                    new AntPathRequestMatcher("/notes")
+                    PathPatternRequestMatcher.withDefaults().matcher("/notes")
                 )
                 .defaultAuthenticationEntryPointFor(
                     new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED),
-                    new AntPathRequestMatcher("/notes/**")
+                    PathPatternRequestMatcher.withDefaults().matcher("/notes/**")
                 )
             )
 
