@@ -40,7 +40,7 @@ public class SecurityConfig
             //not using basic authentication b/c going to use Google login
             .httpBasic(basic -> basic.disable())
             //enables oauth2 login & sets url to redirect to after success (true->always redirect there)
-            .oauth2Login(oauth -> oauth.defaultSuccessUrl("https://xcell-shs.netlify.app/frontend/pages/index.html", true));
+            .oauth2Login(oauth -> oauth.defaultSuccessUrl("https://xcell-shs.netlify.app/pages/index.html", true));
 
         return http.build();
     }

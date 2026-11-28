@@ -77,19 +77,19 @@ const signOutButton = document.getElementById("profilePic");
 //     });
 // }
 
-if(signOutButton)
-{
-    signOutButton.addEventListener("click", (event) => {
-    event.preventDefault();
+// if(signOutButton)
+// {
+//     signOutButton.addEventListener("click", (event) => {
+//     event.preventDefault();
 
-    if (confirm("Are you sure you want to sign out?")) {
-        fetch("https://xcell-backend.onrender.com/logout", {
-            method: "POST",
-            credentials: "include"
-        }).then(() => {
-            window.location.href = "/frontend/pages/index.html";
-        });
-    }
-    });
+//     if (confirm("Are you sure you want to sign out?")) {
+//         fetch("https://xcell-backend.onrender.com/logout", {
+//             method: "POST",
+//             credentials: "include"
+//         }).then(() => {
+//             window.location.href = "/frontend/pages/index.html";
+//         });
+//     }
+//     });
 
-}
+// }
