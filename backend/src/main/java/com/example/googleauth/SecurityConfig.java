@@ -36,6 +36,10 @@ public class SecurityConfig
             .csrf(csrf -> csrf
                 .csrfTokenRepository(
                     CookieCsrfTokenRepository.withHttpOnlyFalse()
+                    .setCookieCustomizer(cookie -> cookie
+                        .sameSite("None")
+                        .secure(true)
+                    )
                 )
                 .csrfTokenRequestHandler(
                     new CsrfTokenRequestAttributeHandler()
